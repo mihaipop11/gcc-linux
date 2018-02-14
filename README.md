@@ -1,10 +1,19 @@
-# gcc-linux
-gcc bug
+# gcc-linux (bug)
 
-how to reproduce:
+## works
+```
+git clone https://github.com/mihaipop11/gcc-linux.git gcc-dir
+g++ "-D INCLUDE_FILE=\"${PWD}/include/include.hpp\"" main.cpp
+g++ "-D INCLUDE_FILE=<${PWD}/include/include.hpp>" main.cpp
+```
 
-works:
-```g++ "-D INCLUDE_FILE=\"${PWD}/include/include.hpp\"" main.cpp```
+## doesn't work
+```
+git clone https://github.com/mihaipop11/gcc-linux.git gcc-linux
+g++ "-D INCLUDE_FILE=\"${PWD}/include/include.hpp\"" main.cpp
+```
 
-doesn't work:
-```g++ "-D INCLUDE_FILE=<${PWD}/include/include.hpp>" main.cpp```
+### Issue is here
+```
+g++ "-D INCLUDE_FILE=<${PWD}/include/include.hpp>" main.cpp
+```
